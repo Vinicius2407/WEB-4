@@ -1,0 +1,76 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div th:replace="head:: head"/>
+
+<body>
+  <!-- 
+    BARRA DE NAVEGACAO 
+  -->
+  <!-- injeta o fragment menu -->
+  <div th:replace="menu:: menu"/>
+  <!-- 
+    CONTEUDO DA PAGINA 
+  -->
+  <main class="container">
+    <a class="btn btn-primary active" role="button" th:href="@{/seriados/new}">
+    <i class="bi bi-plus-square"></i>
+    Seriado
+    </a>
+        
+    <div class="bg-light p-5 rounded">
+    
+    <div class="row">
+        <form action="" method="POST">
+        <div class="mb-2">
+          <label class="form-label" for="categoy">Filtrar por categoria: <span>CategoriaName</span></label>
+        </div>
+        <div class="mb-2"> 
+          <select class="form-select" name="cat" required="required">
+            <option value="">Select category</option>            
+          </select>
+        </div>
+        <div class="mb-4">
+          <button class="btn btn-success" type="submit">find</button>
+        </div>
+        </form>
+      </div>
+      
+      <div class="row">
+    
+      <h2>Séries disponíveis</h2>
+      <table class="table table-striped table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Lançamento</th>
+          <th>Temporadas</th>
+          <th>Episódios</th>
+          <th>Categoria</th>
+          <th>#</th>
+        </tr>
+      </thead>
+      <tbody>
+      <!-- usando o thymeleaf para iterar na lista de filmes -->
+        <tr th:each="seriado: ${seriadoList}">
+          <td th:text="${seriado.id}"/>
+          <td th:text="${seriado.title}"/>
+          <td th:text="${seriado.release}"/>
+          <td th:text="${seriado.numberOfSeason}"/>
+          <td th:text="${seriado.numberOfEp}"/>
+          <td th:text="${seriado.category}"/>
+          <td><a th:href="@{/seriados/delete/{id}(id=${seriados.id})}">
+            <i class="bi bi-dash-circle" title="delete"></i>
+          </a></td>
+        </tr>
+      </tbody>
+      </table>
+      
+      </div>
+      
+    </div>
+  </main>
+  <script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
