@@ -1,0 +1,38 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="head:: head" />
+
+<body>
+  <div th:replace="menu:: menu" />
+  <main class="container">
+    <a class="btn btn-primary active" role="button" th:href="@{/persons/new}">
+      <i class="bi bi-plus-square"></i>
+      Pessoas
+    </a>
+
+    <div class="bg-light p-5 rounded">
+      <div class="row">
+        <!--
+    	<span th:each="cat: ${categories}">
+    		<input type='radio' th:text="${cat}"/>
+    	</span>
+    	-->
+        <form th:object="${persons}" action="/persons/save" method="POST">
+          <div class="col-8">
+            <label class="form-label" for="name">Title</label>
+            <input type="text" th:field="*{name}" class="form-control" placeholder="Digite seu Nome"
+              th:errorclass="inputError" autocomplete="off">
+
+            <span class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">campo invalido</span>
+
+          </div>
+          <button class="btn btn-dark">Save</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+
+</html>
