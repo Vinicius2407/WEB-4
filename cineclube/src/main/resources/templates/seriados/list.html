@@ -15,7 +15,7 @@
   <main class="container">
     <a class="btn btn-primary active" role="button" th:href="@{/seriados/new}">
     <i class="bi bi-plus-square"></i>
-    Seriado
+    New
     </a>
         
     <div class="bg-light p-5 rounded">
@@ -53,13 +53,13 @@
       </thead>
       <tbody>
       <!-- usando o thymeleaf para iterar na lista de filmes -->
-        <tr th:each="seriado: ${seriadoList}">
-          <td th:text="${seriado.id}"/>
-          <td th:text="${seriado.title}"/>
-          <td th:text="${seriado.release}"/>
-          <td th:text="${seriado.numberOfSeason}"/>
-          <td th:text="${seriado.numberOfEp}"/>
-          <td th:text="${seriado.category}"/>
+        <tr th:each="seriados: ${seriados}">
+          <td th:text="${seriados.id}"/>
+          <td th:text="${seriados.title}"/>
+          <td th:text="${seriados.release}"/>
+          <td th:text="${seriados.numberOfSeason}"/>
+          <td th:text="${seriados.numberOfEp}"/>
+          <td th:text="${seriados.category}"/>
           <td><a th:href="@{/seriados/delete/{id}(id=${seriados.id})}">
             <i class="bi bi-dash-circle" title="delete"></i>
           </a></td>

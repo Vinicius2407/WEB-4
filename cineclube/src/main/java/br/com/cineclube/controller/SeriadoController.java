@@ -1,8 +1,8 @@
 package br.com.cineclube.controller;
 
-// import java.math.BigDecimal;
-// import java.time.LocalDate;
-// import java.util.Calendar;
+ import java.math.BigDecimal;
+ import java.time.LocalDate;
+ import java.util.Calendar;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -30,7 +30,7 @@ public class SeriadoController {
     public String Save(@Valid Seriado seriado, BindingResult result, Model model) {
         if (result.hasErrors()) {
             model.addAttribute("categories", Category.values());
-            return "/seriados/manter";
+            return "seriados/manter";
         }
         dao.save(seriado);
         return "redirect:/seriados/list";
@@ -45,7 +45,7 @@ public class SeriadoController {
 		// criar um lista de categorias
 		model.addAttribute("categories",Category.values());
 		System.out.println("chegouaqui");
-		return "/seriados/manter";
+		return "seriados/manter";
 	}
 
     @RequestMapping("/delete/{id}")

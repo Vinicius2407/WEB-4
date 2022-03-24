@@ -28,13 +28,13 @@
           </div>
           <div class="col">
             <label class="form-label" for="numberOfEp">Number of Episodes</label>
-            <input type="number" th:field="$*{numberOfEp}" class="form-control" placeholder="10" autocomplete="off">
+            <input type="number" th:field="${seriado.numberOfEp}" class="form-control" placeholder="10" autocomplete="off">
             <span class="error" th:if="${#fields.hasErrors('numberOfEp')}" th:errors="*{numberOfEp}">campo
               invalido</span>
           </div>
           <div class="col">
             <label class="form-label" for="numberOfSeason">Number of Season</label>
-            <input type="number" th:field="$*{numberOfSeason}" class="form-control" placeholder="3" autocomplete="off">
+            <input type="number" th:field="${seriado.numberOfSeason}" class="form-control" placeholder="3" autocomplete="off">
             <span class="error" th:if="${#fields.hasErrors('numberOfSeason')}" th:errors="*{numberOfSeason}">campo
               invalido</span>
           </div>
