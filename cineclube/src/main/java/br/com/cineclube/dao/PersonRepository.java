@@ -6,5 +6,6 @@ import br.com.cineclube.model.Person;
 
 public interface PersonRepository extends JpaRepository<Person, Long> {
 	// findAll, findById, get, save, delete
+//?
 
 }
